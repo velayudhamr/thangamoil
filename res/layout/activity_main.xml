@@ -1,0 +1,592 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center_vertical|center_horizontal"
+    android:orientation="vertical" 
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin" 
+    android:background="#145266"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true">
+	
+	<TableLayout
+	    android:id="@+id/table_one"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+	    android:shrinkColumns="*"  
+		android:stretchColumns="*">
+	
+	    <TableRow  
+	        android:layout_height="wrap_content"
+	        android:layout_width="fill_parent"
+	        android:gravity="center_horizontal">
+		    
+		     <TextView 
+				android:layout_width="match_parent" 
+				android:layout_height="wrap_content"
+				android:textStyle="bold"
+				android:gravity="center"
+				android:textColor="#FFF"
+				android:textSize="15sp"
+				android:layout_span="3"
+				android:text="@string/order_header"/>
+		</TableRow>
+		
+	    <TableRow  
+	        android:layout_marginTop="20sp"
+	        android:layout_height="wrap_content"
+	        android:layout_width="30dp">
+	       
+	        <TextView
+				android:layout_weight="1"
+				android:gravity="start"
+				android:textStyle="bold"
+				android:textSize="18sp"
+	            android:textColor="#FFF"
+	            android:text="@string/shop_id" />
+	        
+	        <EditText
+	            android:id="@+id/shop_id_id"
+	            android:background="@drawable/rounded_edittext"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+		        android:gravity="center"
+		        android:textColor="#000"
+	            android:textStyle="bold"
+	            android:hint="@string/shop_id" >
+	            <requestFocus />
+	        </EditText>
+	        
+	        <Button
+		        android:id="@+id/go_btn"
+		        android:layout_marginStart="5sp"
+		        android:layout_weight="1"
+		        android:gravity="center"
+		        style="@style/button"
+		        android:text="@string/go"/>
+	        
+	    </TableRow>
+	    <TableRow
+			    android:layout_marginTop="20sp"
+			    android:id="@+id/tatalbalance_row"
+		        android:layout_height="wrap_content"
+		        android:layout_width="match_parent"
+			    android:gravity="center">
+			    <TextView
+		        	android:text="Total Balance"
+		        	android:textColor="#FFF"
+					android:gravity="start"
+					android:textSize="18sp"
+					android:textStyle="bold"
+					android:layout_weight="1"/>
+		
+		   		<TextView
+		        	android:id="@+id/totalbalance_id"
+		        	android:textColor="#FF0000"
+					android:textSize="28sp"
+			        android:textStyle="bold"
+		        	android:gravity="center"
+		        	android:layout_weight="1"
+		        	android:hint="@string/balance"/>
+		</TableRow>
+	    <TableRow 
+			 android:layout_marginTop="20sp"
+	        android:layout_height="wrap_content"
+	        android:layout_width="match_parent"
+	        android:minHeight="28dp"
+	        android:id="@+id/address_order_row"
+		    android:gravity="center">
+	
+	        <TextView
+		        android:id="@+id/address_text"
+		        android:textStyle="bold"
+		        android:layout_height="wrap_content"
+		        android:textColor="#FFF"
+		        android:layout_width="0dp"
+		        android:layout_weight="1"/>
+		
+	         <RadioGroup
+	            android:layout_width="0dp"
+		        android:id="@+id/page_id"
+		        android:layout_height="wrap_content"
+		        android:orientation="vertical"
+		        android:layout_weight="1"
+		        android:background="@drawable/bg_radio">
+           
+		        <RadioButton
+		            android:id="@+id/Reciptpage"
+		            android:textStyle="bold"
+		            android:textColor="#FFF"
+		            android:onClick="onRadioButtonClicked"
+		            android:text="@string/recipte" />
+		
+		        <RadioButton
+		            android:id="@+id/orderpage"
+		            android:textStyle="bold"
+		            android:textColor="#FFF"
+		            android:onClick="onRadioButtonClicked"
+		            android:text="@string/get_order" />
+			</RadioGroup>
+	 	</TableRow>
+	 	
+	 	
+	 	<TableLayout
+	 	    android:id="@+id/Recipt_table"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content">
+         	
+			<TableRow
+			 	     android:layout_marginTop="20sp"
+			 	    android:id="@+id/bill_row"
+			        android:layout_height="wrap_content"
+			        android:layout_width="match_parent"
+				    android:gravity="center">
+				   <TextView
+				        android:layout_height="wrap_content"
+				        android:text="@string/bill_no"
+				        android:textColor="#FFF"
+						android:gravity="start"
+						android:textSize="18sp"
+						android:textStyle="bold"
+				        android:layout_weight="1"/>
+				   <Spinner
+				       android:id="@+id/bull_no_id"
+				       android:background="@drawable/btn_dropdown"
+				       android:layout_weight="1"
+				       android:gravity="center"
+				       android:spinnerStyle="@android:style/Widget.Spinner.DropDown"/>
+				</TableRow>
+
+			<!--<TableRow
+				     android:layout_marginTop="20sp"
+				    android:id="@+id/amount_collect_row"
+			        android:layout_height="wrap_content"
+			        android:layout_width="match_parent"
+				    android:gravity="center">
+				    <TextView
+			        	android:text="Amount Collected"
+			        	android:textColor="#FFF"
+						android:gravity="start"
+						android:textSize="18sp"
+						android:textStyle="bold"
+						android:layout_weight="1"/>
+			
+			   		<TextView
+			        	android:id="@+id/amountcollect_id"
+			        	android:textColor="#FF0000"
+						android:textSize="28sp"
+				        android:textStyle="bold"
+			        	android:gravity="center"
+			        	android:layout_weight="1"
+			        	android:hint="@string/balance"/>
+				</TableRow> 
+				<TableRow
+			    	android:layout_marginTop="20sp"
+			    	android:id="@+id/title_row"
+		        	android:layout_height="wrap_content"
+		        	android:layout_width="match_parent"
+			    	android:gravity="center">
+			    	 <TextView
+			    	    android:id="@+id/BillId"
+			        	android:text="Bill Id"
+			        	android:textColor="#FFF"
+						android:gravity="start"
+						android:textSize="18sp"
+						android:textStyle="bold"
+						android:layout_weight="1"/>
+		
+			   		<TextView
+			        	android:id="@+id/Biilbalance"
+			        	android:text="BB"
+			        	android:textColor="#FF0000"
+						android:textSize="28sp"
+				        android:textStyle="bold"
+			        	android:gravity="center"
+			        	android:layout_weight="1"/>
+			   		<TextView
+			        	android:id="@+id/Biilamount"
+			        	android:text="BA"
+			        	android:textColor="#FF0000"
+						android:textSize="28sp"
+				        android:textStyle="bold"
+			        	android:gravity="center"
+			        	android:layout_weight="1"/>
+			    </TableRow>
+			    <TableRow 
+			        android:layout_height="wrap_content"
+			        android:layout_width="match_parent">
+					<TableLayout 
+					    android:id="@+id/bill_table"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_weight="1"/>
+				</TableRow>-->
+				<TableRow
+				    android:layout_marginTop="20sp"
+				    android:id="@+id/balance_row"
+			        android:layout_height="wrap_content"
+			        android:layout_width="match_parent"
+				    android:gravity="center">
+				    <TextView
+			        	android:text="@string/balance"
+			        	android:textColor="#FFF"
+						android:gravity="start"
+						android:textSize="18sp"
+						android:textStyle="bold"
+						android:layout_weight="1"/>
+			
+			   		<TextView
+			        	android:id="@+id/balance_id"
+			        	android:textColor="#FF0000"
+						android:textSize="28sp"
+				        android:textStyle="bold"
+			        	android:gravity="center"
+			        	android:layout_weight="1"
+			        	android:hint="@string/balance"/>
+				</TableRow>
+				<TableRow
+				    android:layout_marginTop="60sp"
+				    android:id="@+id/Error_row"
+				    android:minHeight="38dp"
+			       	android:layout_height="match_parent"
+			        android:layout_width="match_parent"
+				    android:gravity="center">
+				    
+				     <TextView
+				        android:text="@string/error"
+				        android:textColor="#FF0"
+						android:gravity="center_horizontal"
+						android:textSize="18sp"
+						android:textStyle="bold"
+						android:layout_weight="1"/>
+				</TableRow>
+				<TableRow
+				    android:layout_marginTop="20sp"
+				    android:id="@+id/amount_row"
+				    android:minHeight="38dp"
+			       	android:layout_height="match_parent"
+			        android:layout_width="match_parent"
+				    android:gravity="center">
+				    
+				     <TextView
+				        android:text="@string/amount"
+				        android:textColor="#FFF"
+						android:gravity="start"
+						android:textSize="18sp"
+						android:textStyle="bold"
+						android:layout_weight="1"/>
+			
+				    <EditText
+				        android:id="@+id/amount_id"
+				        android:layout_height="50dp"
+				        android:background="@drawable/rounded_edittext"
+				        android:textColor="#000"
+				        android:inputType="number"
+				        android:textSize="28sp"
+				        android:textStyle="bold"
+				        android:gravity="center"
+				        android:hint="@string/amount"
+				        android:layout_weight="1" />
+				</TableRow>
+				<TableRow
+				    android:layout_marginTop="20sp"
+				    android:id="@+id/payment_row"
+			        android:layout_height="wrap_content"
+			        android:layout_width="match_parent">
+				    <TextView
+			        	android:layout_height="wrap_content"
+			        	android:text="@string/payment" 
+			        	android:textColor="#FFF"
+			        	android:textSize="18sp"
+			        	android:textStyle="bold"
+			        	android:gravity="start"
+			        	android:layout_weight="1"/>
+			
+				    <RadioGroup
+				        android:id="@+id/radiogroup_id"
+				        android:layout_width="wrap_content"
+				        android:layout_height="wrap_content"
+				        android:orientation="vertical"
+				        android:layout_weight="1"
+				        android:background="@drawable/bg_radio">
+				
+				        <RadioButton
+				            android:id="@+id/cash_id"
+				            android:textStyle="bold"
+				            android:textColor="#FFF"
+				            android:onClick="onRadioButtonClicked"
+				            android:text="@string/cash" />
+				
+				        <RadioButton
+				            android:id="@+id/check_id"
+				            android:textStyle="bold"
+				            android:onClick="onRadioButtonClicked"
+				            android:textColor="#FFF"
+				            android:text="@string/check" />
+				    </RadioGroup>
+				</TableRow>
+				<TableRow
+				    android:layout_marginTop="20sp"
+				    android:id="@+id/check_no_row"
+			       	android:layout_height="wrap_content"
+			        android:layout_width="match_parent"
+			        android:minHeight="38dp"
+				    android:gravity="center">
+				    <TextView
+				        android:id="@+id/check_text"
+				        android:textColor="#FFF"
+				        android:textStyle="bold"
+				        android:textSize="18sp"
+						android:gravity="start"
+				        android:text="@string/checkno"
+				        android:layout_weight="1"/>
+				    
+				
+				    <EditText
+				        android:id="@+id/checkno_id"
+				        android:layout_height="match_parent"
+				        android:background="@drawable/rounded_edittext"
+				        android:inputType="number"
+				        android:textColor="#000"
+				        android:textStyle="bold"
+				        android:gravity="center"
+				        android:hint="@string/checkno"
+				        android:layout_weight="1" />
+				</TableRow>
+				
+				<TableRow
+				    android:layout_marginTop="20sp"
+				    android:id="@+id/check_date_row"
+				    android:minHeight="38dp"
+			        android:layout_height="wrap_content"
+			        android:layout_width="match_parent"
+				    android:gravity="center">
+				    <TextView
+				        android:id="@+id/checkdate_text"
+				        android:textColor="#FFF"
+				        android:textStyle="bold"
+				        android:textSize="18sp"
+				        android:gravity="start"
+				        android:text="@string/checkdate" 
+				        android:layout_weight="1"/>
+				
+				    <EditText
+				        android:id="@+id/checkdate_id"
+				        android:layout_height="match_parent"
+				        android:gravity="center"
+				        android:textStyle="bold"
+				        android:background="@drawable/rounded_edittext"
+				        android:textColor="#000"
+				        android:hint="@string/checkdate" 
+				        android:layout_weight="1"/>
+				</TableRow>
+			   
+			   <TableRow
+			        android:layout_marginTop="20sp"
+			        android:id="@+id/check_Bankname_row"
+			        android:minHeight="38dp"
+			        android:layout_height="wrap_content"
+			        android:layout_width="match_parent"
+				    android:gravity="center"> 
+			       <TextView
+			            android:id="@+id/Bankname_text"
+				        android:textStyle="bold"
+				        android:textColor="#FFF"
+				        android:textSize="18sp"
+						android:gravity="start"
+				        android:text="@string/Bankname" 
+				        android:layout_weight="1"/>
+				        
+				    
+					 <AutoCompleteTextView
+					    android:id="@+id/Bankname_id"
+					    android:hint="@string/Bankname"
+				        android:layout_height="match_parent"
+				        android:textStyle="bold"
+				        android:gravity="center"
+				        android:textColor="#000"
+				        android:layout_weight="1" 
+					    android:ems="10"
+					    android:background="@drawable/rounded_edittext"/>
+					
+			    </TableRow>
+			    
+				<TableRow
+				    android:layout_marginTop="20sp"
+			        android:layout_height="wrap_content"
+			        android:id="@+id/save_btn_row"
+			        android:layout_width="match_parent"
+				    android:gravity="center">
+				    <Button
+				        android:id="@+id/receipt_btn"
+				        android:layout_width="wrap_content"
+				        android:layout_height="match_parent"
+				        android:textStyle="bold"
+				        style="@style/button"
+				        android:text="@string/save"
+				        android:layout_weight="1"
+						android:textSize="23sp" />
+				</TableRow>
+			</TableLayout>
+			<TableLayout
+			    android:id="@+id/Order_table"
+			    android:layout_width="fill_parent"
+				android:layout_height="wrap_content">
+			    <TableRow
+			        android:layout_marginTop="7sp"
+			        android:minHeight="38dp"
+			        android:layout_height="wrap_content"
+			        android:layout_width="match_parent">
+				     
+					<TextView 
+						android:layout_weight="1"
+						android:gravity="center"
+						android:textStyle="bold"
+						android:textSize="18sp"
+			            android:textColor="#FFF"
+						android:text="@string/ml1000"/>
+					<EditText 
+						android:id="@+id/id_1000"
+						android:layout_weight="1"
+						android:inputType="number"
+						android:textColor="#000"
+						android:gravity="center"
+						android:background="@drawable/rounded_edittext"
+						android:layout_height="match_parent"
+						android:hint="@string/empty"/>	
+			    </TableRow>
+			    <TableRow
+			       android:layout_marginTop="7sp"
+			       android:minHeight="38dp"
+			        android:layout_height="wrap_content"
+			        android:layout_width="match_parent">
+			        <TextView 
+						android:layout_weight="1"
+						android:gravity="center"
+						android:textStyle="bold"
+						android:textSize="18sp"
+			            android:textColor="#FFF"
+						android:text="@string/ml500"/>
+				 
+					<EditText 
+			    		android:id="@+id/id_500"
+						android:inputType="number"
+						android:textColor="#000"
+						android:background="@drawable/rounded_edittext"
+						android:layout_weight="1"
+						android:gravity="center"
+						android:layout_height="match_parent"
+						android:hint="@string/empty"/>
+			    </TableRow>
+			    <TableRow
+			       android:layout_marginTop="7sp"
+			       android:minHeight="38dp"
+			        android:layout_height="wrap_content"
+			        android:layout_width="match_parent">
+			        <TextView 
+						android:layout_weight="1"
+						android:gravity="center"
+						android:textStyle="bold"
+						android:textSize="18sp"
+			            android:textColor="#FFF" 
+						android:text="@string/ml200"/>
+				 
+				 	<EditText 
+				    	android:id="@+id/id_200"
+				    	android:inputType="number"
+				    	android:textColor="#000"
+						android:background="@drawable/rounded_edittext"
+						android:layout_weight="1"
+						android:gravity="center"
+						android:layout_height="match_parent"
+						android:hint="@string/empty"/>	
+			    </TableRow>
+			    <TableRow
+			        android:layout_marginTop="7sp"
+			        android:minHeight="38dp"
+			        android:layout_height="wrap_content"
+			        android:layout_width="match_parent">
+			        <TextView 
+						android:layout_weight="1"
+						android:gravity="center"
+						android:textStyle="bold"
+						android:textSize="18sp"
+			            android:textColor="#FFF"
+						android:text="@string/ml100"/>
+				 
+				 	<EditText 
+				    	android:id="@+id/id_100"
+				    	android:inputType="number"
+				    	android:textColor="#000"
+						android:background="@drawable/rounded_edittext"
+						android:layout_weight="1"
+						android:gravity="center"
+						android:layout_height="match_parent"
+						android:hint="@string/empty"/>	
+			    </TableRow>
+			    <TableRow
+			        android:layout_marginTop="7sp"
+			        android:minHeight="38dp"
+			        android:layout_height="wrap_content"
+			        android:layout_width="match_parent">
+			        <TextView 
+						android:layout_weight="1"
+						android:gravity="center"
+						android:textStyle="bold"
+						android:textSize="18sp"
+			            android:textColor="#FFF"
+						android:text="@string/ml50"/>
+				 
+				 	<EditText 
+				    	android:id="@+id/id_50"
+				    	android:inputType="number"
+						android:layout_weight="1"
+						android:textColor="#000"
+						android:gravity="center"
+						android:background="@drawable/rounded_edittext"
+						android:layout_height="match_parent"
+						android:hint="@string/empty"/>	
+			    </TableRow>
+			    <TableRow
+			        android:layout_marginTop="7sp"
+			        android:minHeight="38dp"
+			        android:layout_height="wrap_content"
+			        android:layout_width="match_parent">
+			        <TextView 
+						android:layout_weight="1"
+						android:gravity="center"
+						android:textStyle="bold"
+						android:textSize="18sp"
+			            android:textColor="#FFF" 
+						android:text="@string/tin"/>
+				 
+				 	<EditText 
+				    	android:id="@+id/tin_id"
+				    	android:inputType="number"
+						android:layout_weight="1"
+						android:textColor="#000"
+						android:gravity="center"
+						android:background="@drawable/rounded_edittext"
+						android:layout_height="match_parent"
+						android:hint="@string/empty"/>	
+			    </TableRow>
+				<TableRow
+			       android:layout_marginTop="7sp"
+			        android:layout_height="wrap_content"
+			        android:layout_width="match_parent">
+					<Button
+					    android:id="@+id/placeOrder"
+						style="@style/button"
+						android:layout_height="match_parent"
+						android:layout_weight="1"
+						android:text="@string/save"
+					    android:onClick="" />	
+				</TableRow>	
+				</TableLayout>
+	</TableLayout>
+</ScrollView>
